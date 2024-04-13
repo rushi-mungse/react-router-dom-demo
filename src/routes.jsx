@@ -7,17 +7,18 @@ import {
 
 import Home from "./components/pages/home";
 import SiteHeader from "./components/site-header";
-import About from "./components/pages/about";
-import Portfolio from "./components/pages/portfolio";
-import Services from "./components/pages/services";
-import Career from "./components/pages/career";
-import Pricing from "./components/pages/pricing";
+import SignUp from "./components/pages/signup";
+import Products from "./components/pages/products";
+import SiteFooter from "./components/site-footer";
+import { getProducts } from "./api";
+import Stores from "./components/pages/stores";
 
 const RootLayout = () => {
   return (
     <div className="min-h-screen overflow-hidden">
       <SiteHeader />
       <Outlet />
+      <SiteFooter />
     </div>
   );
 };
@@ -25,12 +26,10 @@ const RootLayout = () => {
 const Routes = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route path="" element={<Home />} />
-      <Route path="about" element={<About />} />
-      <Route path="portfolio" element={<Portfolio />} />
-      <Route path="services" element={<Services />} />
-      <Route path="career" element={<Career />} />
-      <Route path="pricing" element={<Pricing />} />
+      <Route index element={<Home />} />
+      <Route path="stores" element={<Stores />} />
+      <Route path="products" element={<Products />} loader={getProducts} />
+      <Route path="signup" element={<SignUp />} />
     </Route>
   )
 );
