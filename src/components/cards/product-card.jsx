@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ProductCard = ({ product }) => {
   return (
     <div className="relative border rounded-lg">
@@ -45,12 +47,12 @@ const ProductCard = ({ product }) => {
                 From ₹ {100}
               </span>
 
-              <button
+              <Link
+                to={`/product/${product._id}`}
                 className="rounded-full block border border-primary bg-primary/40 px-4 py-1 text-sm hover:bg-primary/60 transition-all"
-                onClick={() => {}}
               >
                 Add
-              </button>
+              </Link>
             </div>
           </div>
         </div>
